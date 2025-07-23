@@ -1,4 +1,3 @@
-# Bored API: https://bored-api.appbrewery.com
 import  requests
 
 def  get_random_activity():
