@@ -179,16 +179,14 @@ def  main():
             elif  choice  ==  '3':
                 get_activity_by_participants()
             elif  choice  ==  '4':
-                get_quick_activity()
-            elif  choice  ==  '5':
                 save_favorite_activity()
-            elif  choice  ==  '6':
+            elif  choice  ==  '5':
                 view_saved_activities()
-            elif  choice  ==  '7':
+            elif  choice  ==  '6':
                 print("Thanks for using Bored Activity Finder!")
                 break
             else:
-                print("Invalid choice! Please choose 1-7.")
+                print("Invalid choice! Please choose 1-6.")
         except KeyboardInterrupt:
             print("\n\nGoodbye!")
             break
