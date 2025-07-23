@@ -1,54 +1,28 @@
 import  requests
 
 def  get_random_activity():
-    """
-    Get a completely random activity suggestion
-    API: https://bored-api.appbrewery.com/random
-    """
-    # Step 1: define our url and our endpoint (route)
+    
     url ='https://bored-api.appbrewery.com/random'
-    
-    # Step2: Make the requests
     response =requests.get(url)
-    
-    # Step3: Check what we got back
-    # print("Status Code: ", response.status_code)
-    # print("Raw Response: ", response.text)
-    
-    # Step4: Parse JSON data (make it something useful in python)
     if response.status_code == 200:
-        data=response.json() #convert to python dictionary
-        # print(f"parsed data : {data}")
+        data=response.json() 
         print("\n----------===== Random Activity =====----------")
         print("=====-----=====-----=======-----=====-----=====")
         print(f"Activity: {data['activity']}")
         print(f"Type: {data['type']}")
-        print(f"Participants:: {data['participants']}")
+        print(f"Participants: {data['participants']}")
 
 
 def  get_activity_by_type():
-    """
-    Let user choose an activity type and get a suggestion
-    API: https://bored-api.appbrewery.com/filter?type={type}
-    Types: education, recreational, social, diy, charity, cooking, relaxation, music, busywork
-    """
+
     in_type=''
     while(in_type!='education' and in_type!='recreational' and in_type!='social'and in_type!='diy' and in_type!='charity' and in_type!='cooking' and in_type!='relaxation'and in_type!='music' and in_type!='busywork'):
         in_type=input("Select type: education, recreational, social, diy, charity, cooking, relaxation, music, busywork \nChoice: ")
-    # Step 1: define our url and our endpoint (route)
+    
     url = f'https://bored-api.appbrewery.com/filter?type={in_type}'
-    
-    # Step2: Make the requests
     response =requests.get(url)
-    
-    # Step3: Check what we got back
-    # print("Status Code: ", response.status_code)
-    # print("Raw Response: ", response.text)
-    
-    # Step4: Parse JSON data (make it something useful in python)
     if response.status_code == 200:
-        data=response.json() #convert to python dictionary
-        # print(f"parsed data : {data}")
+        data=response.json() 
         print(f"\n----------===== {in_type} activities =====----------")
         print("=====-----=====-----=======-----=====-----=====")
         for one_data in data:
@@ -56,27 +30,15 @@ def  get_activity_by_type():
 
 
 def  get_activity_by_participants():
-    """
-    Get activity suggestions based on number of participants
-    API: https://bored-api.appbrewery.com/filter?participants={number}
-    """
+    
     number=''
     while(not number.isdecimal()):
         number=input("How many participants?: ")
-    # Step 1: define our url and our endpoint (route)
+
     url = f'https://bored-api.appbrewery.com/filter?participants={number}'
-    
-    # Step2: Make the requests
     response =requests.get(url)
-    
-    # Step3: Check what we got back
-    # print("Status Code: ", response.status_code)
-    # print("Raw Response: ", response.text)
-    
-    # Step4: Parse JSON data (make it something useful in python)
     if response.status_code == 200:
-        data=response.json() #convert to python dictionary
-        # print(f"parsed data : {data}")
+        data=response.json() 
         print(f"\n-----===== activities for {number} people =====-----")
         print("=====-----=====-----=======-----=====-----=====")
         for one_data in data:
@@ -90,7 +52,7 @@ def  show_menu():
     print("1. Get a random activity")
     print("2. Get activity by type")
     print("3. Get activity by participants")
-    print("4.  Exit")
+    print("4. Exit")
 
 def  main():
     """Main function with menu loop"""
