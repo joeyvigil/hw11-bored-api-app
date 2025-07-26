@@ -1,4 +1,4 @@
-import  requests
+import  requests        #pip install requests
 
 def  get_random_activity():
     
