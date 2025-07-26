@@ -60,7 +60,7 @@ def  main():
     while  True:
         show_menu()
         try:
-            choice  =  input("\nChoose an option (1-6): ")
+            choice  =  input("\nChoose an option (1-4): ")
             if  choice  ==  '1':
                 get_random_activity()
             elif  choice  ==  '2':
